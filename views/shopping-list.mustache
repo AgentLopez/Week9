@@ -1,0 +1,175 @@
+{{>headermenu}}
+
+<div id="page-title" class="padding-tb-30px gradient-white">
+	<div class="container text-left">
+<!--		<ol class="breadcrumb opacity-5">
+			<li><a href="/">Home</a></li>
+			<li class="active">Ingredients</li>
+		</ol> -->
+		<h1 class="font-weight-300">Shopping List</h1>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+
+		<div class="col-lg-8">
+
+			<div class="row">
+
+
+				{{#check}}
+
+				<div class="col-lg-3 col-md-3 text-center margin-bottom-40px">
+					<div class="hvr-float">
+						<div class="thum"><img src="{{ing_img}}" onerror="this.src='/assets/img/bag.jpg'"
+								class="border-radius-8 box-shadow" alt=""></div>
+						<a class="h4 d-block margin-top-20px" href="#">{{ing_name}}</a>
+						<small class="text-grey-2"></small>
+
+						<a href="/move/{{ing_id}},{{ing_active}}" type="button" class="btn btn-primary">Remove
+							From List</a>
+
+					</div>
+				</div>
+				{{/check}}
+
+
+				{{^check}}
+				{{#recipe}}
+
+				<div class="col-lg-3 col-md-3 text-center margin-bottom-40px">
+					<div class="hvr-float">
+						<div class="thum"><img class="border-radius-8 box-shadow" src="{{recipe_img}}" alt="">
+						</div>
+						<h3 class="h4 d-block margin-top-20px">You've Got Everything to make {{recipe_title}}
+						</h3>
+						<small class="text-grey-2"></small>
+						<br>
+						<a href="{{recipe_url}}" type="button" class="btn btn-success">PREP INSTRUCTIONS</a>
+
+					</div>
+				</div>
+
+				{{/recipe}}
+				{{/check}}
+
+
+
+
+				{{#uncheck}}
+
+
+				<div class="col-lg-3 col-md-3 text-center margin-bottom-40px">
+					<div class="hvr-float">
+						<div class="thum"><img src="/assets/img/goit.jpg" onerror="this.src='/assets/img/bag.jpg'"
+								class="border-radius-8 box-shadow" alt=""></div>
+						<a class="h4 d-block margin-top-20px" href="#">{{ing_name}}</a>
+						<small class="text-grey-2"></small>
+
+						<a href="/move/{{ing_id}},{{ing_active}}" type="button" class="btn btn-primary">Oops, Still
+							Need</a>
+
+					</div>
+				</div>
+				{{/uncheck}}
+
+			</div>
+<!--
+			<div class="text-center">
+				<a href="#"
+					class="btn box-shadow margin-top-20px padding-tb-10px btn-sm border-2 border-radius-30 btn-inline-block width-210px background-dark text-white">Load
+					More ...</a>
+			</div>
+-->
+		</div>
+		<div class="col-lg-4">
+			<div class="listing-search box-shadow background-main-color padding-30px margin-bottom-30px">
+				{{#recipe}}
+				<div class="row no-gutters">
+					<div class="col-md-12">
+						<h4 class="text-center text-white padding-15px">{{recipe_title}}</h4>
+					</div>
+					<div class="col-md-12">
+					<img class="border-radius-8 box-shadow" src="{{recipe_img}}" alt="">
+					</div>
+					<div class="col-md-12">
+						<h4 class="text-center text-white padding-15px"><a href="{{recipe_url}}">Preperation Instructions</a></h4>
+					</div>
+				</div>
+				{{/recipe}}
+				<!--
+				<form class="row no-gutters">
+					<div class="col-md-12">
+						<div class="keywords">
+							<input class="listing-form first border-radius-10 margin-bottom-10px" type="text"
+								placeholder="Keywords..." value="">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="categories dropdown">
+							<a class="listing-form d-block text-nowrap border-radius-10 margin-bottom-10px"
+								id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All
+								Categories</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+								<button class="dropdown-item text-up-small" type="button">Fish</button>
+								<button class="dropdown-item text-up-small" type="button">Cocktails</button>
+								<button class="dropdown-item text-up-small" type="button">Salads</button>
+								<button class="dropdown-item text-up-small" type="button">Asian</button>
+								<button class="dropdown-item text-up-small" type="button">Fish</button>
+								<button class="dropdown-item text-up-small" type="button">Cocktails</button>
+								<button class="dropdown-item text-up-small" type="button">Salads</button>
+								<button class="dropdown-item text-up-small" type="button">Asian</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<a class="listing-bottom border-radius-10 background-second-color box-shadow" href="#">Search
+							Now</a>
+					</div>
+				</form>
+-->
+
+			</div>
+
+			<div class="row margin-tb-45px">
+
+				{{#recipes}}
+				<div class="col-6 margin-bottom-25px">
+					<a href="/recipe-list/{{recipe_id}}"
+						class="d-block box-shadow background-main-color text-white hvr-float">
+						<div class="thum"><img src="{{recipe_img}}" alt=""></div>
+						<h4 class="text-center padding-15px">{{recipe_title}}</h4>
+					</a>
+				</div>
+				{{/recipes}}
+
+			</div>
+<!--
+			<div class="widget widget_categories">
+				<div class="margin-bottom-30px">
+					<div class="padding-30px background-white border-radius-10">
+						<h4><i class="fab fa-instagram margin-right-10px text-main-color"></i> Instagram</h4>
+						<hr>
+						<div class="row">
+							<div class="col-6 margin-bottom-20px"><a href="#"><img class="border-radius-10"
+										src="http://placehold.it/600x600" alt=""></a></div>
+							<div class="col-6 margin-bottom-20px"><a href="#"><img class="border-radius-10"
+										src="http://placehold.it/600x600" alt=""></a></div>
+							<div class="col-6 margin-bottom-20px"><a href="#"><img class="border-radius-10"
+										src="http://placehold.it/600x600" alt=""></a></div>
+							<div class="col-6 margin-bottom-20px"><a href="#"><img class="border-radius-10"
+										src="http://placehold.it/600x600" alt=""></a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+-->
+		</div>
+
+	</div>
+</div>
+
+
+{{>footer}}
