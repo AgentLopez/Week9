@@ -129,22 +129,18 @@ function getLastRecipe(userId, lastRecipeId) {
     lastRecipeId(results)
   })
 }
-
 function getIngredByRecipeId(recipe_id, ingreds) {
   connection.query('SELECT ing_active, ing_id, ing_img, ing_name FROM ingred WHERE recipe_id = ?', [recipe_id], function (error, results, fields) {
     if (error) throw error;
     ingreds(results)
   })
 }
-
 function getCurrentRecipeById(recipe_id, thisRecipe) {
   connection.query('SELECT recipe_id, recipe_key, recipe_title, recipe_img, recipe_url FROM recipes WHERE recipe_id = ?', [recipe_id], function (error, results, fields) {
     if (error) throw error;
     thisRecipe(results)
   })
 }
-
-
 router.get("/shopping-list", authenticate, (req, res) => {
   let user_id = req.session.userId
   let checked = []
@@ -165,7 +161,8 @@ router.get("/shopping-list", authenticate, (req, res) => {
               unchecked.push(ingredients[index])
             }
           }
-
+          console.log(checked)
+          console.log(unchecked)
           res.render('shopping-list', { check: checked, uncheck: unchecked, recipe: thisRecipe[0], user: user_id, recipes: recipes })
         })
 
@@ -286,7 +283,7 @@ router.post("/choice", (req, res) => {
   let selections = req.body.winner
 
   fetch(
-    `https://api.edamam.com/search?q=${selections}&app_id=a49443ff&app_key=e31785b777706422206d071c54db598e`
+    `https://api.edamam.com/search?q=${selections}&app_id=396e79d2&app_key=fc838fd4aefc30fb854648b519d6cbae`
   )
     .then((response) => {
       return response.json();
@@ -313,7 +310,7 @@ router.post("/recipe/", (req, res) => {
   let recpie = itemone[1];
 
   fetch(
-    `https://api.edamam.com/search?q=${recpie}&app_id=a49443ff&app_key=e31785b777706422206d071c54db598e`
+    `https://api.edamam.com/search?q=${recpie}&app_id=396e79d2&app_key=fc838fd4aefc30fb854648b519d6cbae`
   )
     .then((response) => {
       return response.json();
@@ -330,7 +327,7 @@ router.get("/recipe/:id", (req, res) => {
   let userId = req.session.userId
 
   fetch(
-    `https://api.edamam.com/search?q=${item}&app_id=a49443ff&app_key=e31785b777706422206d071c54db598e`
+    `https://api.edamam.com/search?q=${item}&app_id==396e79d2&app_key=fc838fd4aefc30fb854648b519d6cbae`
   )
     .then((response) => {
       return response.json();

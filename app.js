@@ -22,7 +22,7 @@ const PORT = 3000
 
 app.use(session({
     secret: process.env.SESSION_KEY,
-    resave: false,
+    resave: true,
     saveUninitialized: true
   }))
 
