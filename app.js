@@ -8,6 +8,7 @@ require('dotenv').config()
 app.use('/assets', express.static('assets'))
 const mustacheExpress = require('mustache-express')
 const VIEWS_PATH = path.join(__dirname, '/views')
+const authenticate = require('./assets/auth.js');
 
 var mysql = require ('mysql');
 global.connection = mysql.createPool({
@@ -32,8 +33,10 @@ app.set('view engine', 'mustache')
 app.use(express.urlencoded())
 
 const indexRouter = require('./routes/index.js')
+const shoppingRouter = require('./routes/shopping-list.js')
 app.use('/', indexRouter)
+app.use('/shopping-list', authenticate, shoppingRouter)
 
 app.listen(PORT,() => {
-    console.log('live')
+    console.log('Munchie Time!')
 })
