@@ -14,7 +14,7 @@ The original version could only handle one recipe. I added a column to the users
 
 ![](assets/img/shoppinglistdesktop.png)
 
-A unseen update was changing the database from PostgresSQL to mySQL. I also gave it a pretty home at [MunchieGourmet.com](https://munchiegourmet.com/)
+A unseen update was changing the database from PostgresSQL to mySQL. See it in action at [hungry.agentlopez.com](http://hungry.agentlopez.com/)
 
 ![](assets/img/recipedesktop.png)
 
